@@ -26,9 +26,17 @@ npm install
         if (width / dpr > 540) {
             width = width * dpr;
         }
+        // 屏幕宽度小于540或768的都默认为移动端
+        else {
+            width = width * 2.56 // 适配设计稿为750的移动端（1920/750=2.56）
+        }
     或
         if (width / dpr >= 768) {
             width = width * dpr;
+        }
+        // 屏幕宽度小于540或768的都默认为移动端
+        else {
+            width = width * 2.56 // 适配设计稿为750的移动端（1920/750=2.56）
         }
         var rem = width / 10;
         docEl.style.fontSize = rem + 'px';
